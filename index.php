@@ -18,8 +18,8 @@ header("Content-Type: application/json");
 include_once(getcwd() . "/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/HtmlDomParser.php");
 use KubAT\PhpSimple\HtmlDomParser;
 
-$dom = HtmlDomParser::file_get_html("https://sslecal2.forexprostools.com/", false, null, 0);
-$elems = $dom->getElementById("#ecEventsTable")->find("tr[id*='eventRowId']");
+$dom = HtmlDomParser::file_get_html("https://br.investing.com/economic-calendar/", false, null, 0);
+$elems = $dom->getElementById("#economicCalendarData")->find("tr[id*='eventRowId']");
 $data = [];
 
 function sanitize($str) {

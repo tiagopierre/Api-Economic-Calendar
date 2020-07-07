@@ -1,4 +1,18 @@
 <?php
+/**
+* Economic Calendar API.
+* 
+* It uses the investing.com as data source and using a "web crawling" methodology,
+* revelant data is captured and returned in a more well-structured data model, in this
+* case it will return a JSON.
+* 
+* There is no guarantees about the availability or estability of this API, changes 
+* can be done in source page that can result in a crash of crawler methodology.
+*
+* @author André Lima <andrelimamail@gmail.com>
+* @license MIT
+* @version 1.0
+*/
 header("Content-Type: application/json");
 
 include_once(getcwd() . "/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/HtmlDomParser.php");

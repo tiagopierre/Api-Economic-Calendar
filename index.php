@@ -1,24 +1,10 @@
 <?php
-/**
-* Economic Calendar API.
-* 
-* It uses the investing.com as data source and using a "web crawling" methodology,
-* revelant data is captured and returned in a more well-structured data model, in this
-* case it will return a JSON.
-* 
-* There is no guarantees about the availability or estability of this API, changes 
-* can be done in source page that can result in a crash of crawler methodology.
-*
-* @author André Lima <andrelimamail@gmail.com>
-* @license MIT
-* @version 1.0
-*/
 header("Content-Type: application/json");
 
 include_once(getcwd() . "/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/HtmlDomParser.php");
 use KubAT\PhpSimple\HtmlDomParser;
 
-$dom = HtmlDomParser::file_get_html("https://sslecal2.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=110,17,29,25,32,6,37,36,26,5,22,39,14,48,10,35,7,43,38,4,12,72&calType=week&timeZone=12&lang=12");
+$dom = HtmlDomParser::file_get_html("https://sslecal2.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=110,17,29,25,32,6,37,36,26,5,22,39,14,48,10,35,7,43,38,4,12,72&calType=day&timeZone=12&lang=12");
 $elems = $dom->getElementById("#ecEventsTable")->find("tr[id*='eventRowId']");
 $data = [];
 
